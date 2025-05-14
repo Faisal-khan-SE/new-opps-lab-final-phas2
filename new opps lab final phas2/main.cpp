@@ -11,7 +11,7 @@
 
 
 //kkbdrjbrjrkjbvdkjbgvkdj
-
+//cjvjdrbvkdbvkdbvkd
 int main()
 {
     politics game;// player 1
