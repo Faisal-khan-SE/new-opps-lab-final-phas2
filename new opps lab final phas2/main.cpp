@@ -3,6 +3,14 @@
 #include <conio.h>
 #include <cstdlib>
 #include <limits>
+
+
+
+
+//HELOOO WORLD KJSOUFHOFN
+
+
+
 int main()
 {
     politics game;// player 1
