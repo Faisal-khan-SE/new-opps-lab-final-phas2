@@ -1,6 +1,11 @@
 #pragma once
 #include<iostream>
+#include<windows.h>
 using namespace std;
+// Color helper functions
+void SetColor(int color);
+
+void ResetColor();
 //static int amount = 1000;
 //static int money = 1000;
 class KingdomEngine {

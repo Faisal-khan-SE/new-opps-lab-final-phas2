@@ -3,15 +3,7 @@
 #include <conio.h>
 #include <cstdlib>
 #include <limits>
-
-
-
-
-//HELOOO WORLD KJSOUFHOFN
-
-
-//kkbdrjbrjrkjbvdkjbgvkdj
-//cjvjdrbvkdbvkdbvkd
+//HELOOO WORLD 
 int main()
 {
     politics game;// player 1
@@ -65,7 +57,7 @@ int main()
                 cout << "\n00. Exit";
                 cout << "\nEnter your choice: ";
                 cin >> choice;
-                cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                cin.ignore(/*numeric_limits<streamsize>::max(), '\n'*/);
 
                 system("cls");
                 switch (choice) {
@@ -207,6 +199,7 @@ int main()
                 game2.initializePeople();
                 game2.setPopulation();
                 game2.displayKingdom();
+                SetColor(3);
                 game2.information();
                 game2.showEconomy();
                 game2.showBankDetails();
@@ -227,8 +220,8 @@ int main()
                 cout << "\n00. Exit";
                 cout << "\nEnter your choice: ";
                 cin >> choice;
-                cin.ignore(numeric_limits<streamsize>::max(), '\n');
-
+                cin.ignore(/*numeric_limits<streamsize>::max(), '\n'*/);
+            
                 system("cls");
                 switch (choice) {
                 case 1: {

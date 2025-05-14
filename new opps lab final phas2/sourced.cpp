@@ -4,6 +4,15 @@
 #include <cstdlib>
 #include <fstream>
 using namespace std;
+
+void SetColor(int color) {
+    HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+    SetConsoleTextAttribute(hConsole, color);
+}
+void ResetColor() {
+    SetColor(15);  // Default gray
+}
+
 bool famine = false;
 int faisal_vote = 0;
 int Ehtasham_vote = 0;
@@ -151,9 +160,30 @@ void population::populationDetail() {
 }
 
 void KingdomEngine::displayKingdom() {
-    for (int i = 0; i < row; i++) {
+   /* for (int i = 0; i < row; i++) {
         for (int j = 0; j < column; j++) {
             cout << ptr[i][j];
+        }
+        cout << endl;
+    }*/
+    for (int i = 0; i < row; i++) {
+        for (int j = 0; j < column; j++) {
+            // Add colors based on content
+            if (ptr[i][j] == 'L') SetColor(8);
+            else if (ptr[i][j] == '1') SetColor(2);
+            else if (ptr[i][j] == '2') SetColor(2);
+            else if (ptr[i][j] == '+' || ptr[i][j] == 'A' || ptr[i][j] == 'R' ||
+                ptr[i][j] == 'M' || ptr[i][j] == 'Y') SetColor(48);
+            else if (ptr[i][j] == 'S' || ptr[i][j] == 'H' || ptr[i][j] == 'O' ||
+                ptr[i][j] == 'P') SetColor(15); // Cyan for shop
+            else if (ptr[i][j] == 'F' || ptr[i][j] == 'O' || ptr[i][j] == 'D') SetColor(15);
+            else if (ptr[i][j] == 'B' || ptr[i][j] == 'A' || ptr[i][j] == 'N' ||
+                ptr[i][j] == 'K') SetColor(14);
+            else {
+                SetColor(4);
+            }
+            cout << ptr[i][j];
+            ResetColor();
         }
         cout << endl;
     }
@@ -277,6 +307,7 @@ void KingdomEngine::femine() {
     srand(time(0));
     int food = rand() % 100;
     if (food < 40 && food > 30) {
+        SetColor(4);
         cout << "Famine occurred!\n";
         people -= 4;
         cout << "Remaining persons are: " << people << endl;
@@ -290,7 +321,7 @@ void KingdomEngine::femine() {
         famine = true;
         money -= 400;
         amount -= 400;
-        cout << "Food storage destroyed and money lost due to famine!\n";
+        cout << "Cause: Food storage destroyed and money lost due to famine!\n";
         displayKingdom();
     }
     else {
@@ -303,16 +334,24 @@ void KingdomEngine::weather() {
     int condition = rand() % 50;
     system("cls");
     if (condition == 22) {
-        cout << endl << "It is raining in our kingdom!\n";
+        SetColor(9);
+        cout << endl << "It is raining in our kingdom!\n" ;
+      
     }
     else if (condition > 15 && condition < 30) {
+        SetColor(8);
         cout << "The weather condition is normal!\n";
+      
     }
     else if (condition < 15) {
+        SetColor(144);
         cout << "The weather condition is partially cloudy!\n";
+        
     }
     else {
+        SetColor(6);
         cout << "The weather is too hot!\n";
+       
     }
     system("pause");
     displayKingdom();
