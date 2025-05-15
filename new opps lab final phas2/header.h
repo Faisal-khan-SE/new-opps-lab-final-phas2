@@ -102,5 +102,5 @@ public:
     int war();
     int moneyUpdate(int);
     void trading(politics& p1);
-    void war(politics& p1);
+    void warWithPlayer(politics& p1);
 };

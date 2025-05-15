@@ -6,6 +6,10 @@
 //HELOOO WORLD 
 int main()
 {
+    cout << " STRONGHOLD CASTLE DEFENSE \n";
+    cout << "---------------------------------\n";
+    system("pause");
+    system("cls");
     politics game;// player 1
     game.peopleOf1();
     game.moneyOf1();
@@ -15,12 +19,25 @@ int main()
     game2.moneyOf2();
     game2.resourcesOf2();
     int selectObj;
-    cout << "Enter the 1 to select the kingdom of the player 1 \nPress 2 to see the kingdom of the player 2 \nPress 3 to conduct Trade in these both kingdoms \nPress 4 to conduct war between these both two kingdoms:";
+    cout << "==============================================" << endl;
+    cout << "           Kingdom Management Menu            " << endl;
+    cout << "==============================================" << endl;
+    cout << "1. Select the kingdom of Player 1" << endl;
+    cout << "2. View the kingdom of Player 2" << endl;
+    cout << "3. Conduct Trade between both kingdoms" << endl;
+    cout << "4. Initiate War between both kingdoms" << endl;
+    cout << "----------------------------------------------" << endl;
+    cout << "Enter your choice (1-4): ";
     cin >> selectObj;
     if (selectObj >= 1 && selectObj <= 4)
     {
         if (selectObj == 1)
         {
+            system("cls");
+            cout << "\n======================================" << endl;
+            cout << "      Welcome to Player 1 Kingdom     " << endl;
+            cout << "======================================" << endl;
+            system("pause");
             int choice;
             bool running = true;
             game.setVal();
@@ -57,7 +74,7 @@ int main()
                 cout << "\n00. Exit";
                 cout << "\nEnter your choice: ";
                 cin >> choice;
-                cin.ignore(/*numeric_limits<streamsize>::max(), '\n'*/);
+                cin.ignore();
 
                 system("cls");
                 switch (choice) {
@@ -93,6 +110,7 @@ int main()
                     cout << "\n If u want corruption then press 1 otherwise press any key:";
                     cin >> corup;
                     game.coruption(corup);
+                    break;
                 }
                 case 6: {
                     game.disease();
@@ -183,6 +201,11 @@ int main()
         }
         else if (selectObj == 2)
         {
+            system("cls");
+            cout << "\n======================================" << endl;
+            cout << "      Welcome to Player 2 Kingdom     " << endl;
+            cout << "======================================" << endl;
+            system("pause");
             int choice;
             bool running = true;
             game2.setVal();
@@ -256,6 +279,7 @@ int main()
                     cout << "\n If u want corruption then press 1 otherwise press any key:";
                     cin >> corup;
                     game.coruption(corup);
+                    break;
                 }
                 case 6: {
                     game2.disease();
@@ -347,18 +371,25 @@ int main()
         else if (selectObj == 3)
         {
             system("cls");
-            cout << "Its trading time come on lets go \n";
+            cout << "\n==========================================" << endl;
+            cout << "           Trade Time Between Kingdoms         " << endl;
+            cout << "==========================================" << endl;
+            system("pause");
             game2.trading(game);
-            cout << "resources of player 1 are: \n";
+            cout << "        Resources of Player 1 Kingdom After Trade       " << endl;
             game.displayR1();
-            cout << "\n\nresources of the player 2 are the :\n";
+            cout << "        Resources of Player 2 Kingdom After Trade     " << endl;
             game2.displayR1();
         }
         else if (selectObj == 4)
         {
             system("cls");
-            cout << "Its war time come on lets go \n";
-            game2.war(game);
+            cout << "\n======================================" << endl;
+            cout << "           * IT'S WAR! *          " << endl;
+            cout << "======================================" << endl;
+            system("pause");
+            system("cls");
+            game2.warWithPlayer(game);
         }
     }
     return 0;

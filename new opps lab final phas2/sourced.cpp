@@ -157,6 +157,7 @@ void KingdomEngine::information() {
 
 void population::populationDetail() {
     cout << "The total number of people are: " << people << endl;
+    system("pause");
 }
 
 void KingdomEngine::displayKingdom() {
@@ -191,13 +192,18 @@ void KingdomEngine::displayKingdom() {
 
 void economy::showEconomy() {
     cout << "Economy of our region is now: " << money;
-
+    system("pause");
 }
 
 int politics::Election() {
-
+    cout << "\n=============================================" << endl;
+    cout << "             Election Day: Vote Now!         " << endl;
+    cout << "=============================================" << endl << endl;
+    cout << "Press 1 to vote for Politician 1." << endl;
+    cout << "Press 2 to vote for Politician 2." << endl;
+    cout << "Enter your choice (1 or 2): ";
     int choice;
-    cout << "If you want to vote for Faisal press 1, for Ehtasham press 2: ";
+    cout << "If you want to vote for Politician 1 press 1:\nIf you want to vote for Politician 2 press 2: ";
     fstream file("Election.txt", ios::app);
     for (int i = 1; i <= people; i++) {
         cout << endl << "Enter vote (" << i << ") person: ";
@@ -231,16 +237,16 @@ int politics::Election() {
             return 0;
         }
     }
-    file << "Faisal:" << faisal_vote << "\t\t Ehtasham:" << Ehtasham_vote;
+    file << "Politician 1:" << faisal_vote << "\t\t Politician 2:" << Ehtasham_vote;
     if (faisal_vote > Ehtasham_vote) {
         system("cls");
-        cout << "Winner is Faisal Khan!\n its votes are :" << faisal_vote << endl;
+        cout << "Winner is Politician 1\n His votes are :" << faisal_vote << endl;
         return system("pause");
 
     }
     else if (faisal_vote < Ehtasham_vote) {
         system("cls");
-        cout << "Winner is Ehtasham!\n its votes are :" << Ehtasham_vote << endl;
+        cout << "Winner is Politician 2\n His votes are :" << Ehtasham_vote << endl;
         return system("pause");
     }
     else
@@ -262,17 +268,18 @@ void politics::coruption(int x) {
     else {
         cout << "there is no revolt:";
     }
+    system("pause");
 }
 void politics::revolt() {
     if (faisal_vote > Ehtasham_vote) {
-        cout << "There is corruption by Faisal Khan!\n";
+        cout << "There is corruption by Politician 1\n";
         cout << "Revolt started!\n";
         cout << "Elections will be held again!\n";
 
         Election();
     }
     else if (faisal_vote < Ehtasham_vote) {
-        cout << "There is corruption by Ehtasham!\n";
+        cout << "There is corruption by Politician 2\n";
         cout << "Revolt started!\n";
         Election();
 
@@ -283,6 +290,7 @@ void politics::revolt() {
         cout << "Revolt started!\n";
         Election();
     }
+    system("pause");
 }
 
 void population::disease() {
@@ -290,17 +298,18 @@ void population::disease() {
     int num = rand() % 80 + 60;
 
     if (num <= 120 && num >= 80) {
-        cout << "Person is healthy" << endl;
+        cout << "People are healthy" << endl;
     }
     else if (num <= 70 || num >= 130) {
         if (people > 0) {
             people--;
-            cout << "Remaining persons are: " << people << endl;
+            cout << "Remaining people are: " << people << endl;
         }
     }
     else {
         cout << endl << "Person is ill!";
     }
+    system("pause");
 }
 
 void KingdomEngine::femine() {
@@ -310,7 +319,7 @@ void KingdomEngine::femine() {
         SetColor(4);
         cout << "Famine occurred!\n";
         people -= 4;
-        cout << "Remaining persons are: " << people << endl;
+        cout << "Remaining people are: " << people << endl;
         for (int i = 0; i < row; i++) {
             for (int j = 0; j < column; j++) {
                 if ((i == 1 && j == 14) || (i == 1 && j == 15)) {
@@ -327,6 +336,7 @@ void KingdomEngine::femine() {
     else {
         cout << "Famine does not occure:\n";
     }
+    system("pause");
 }
 
 void KingdomEngine::weather() {
@@ -359,6 +369,9 @@ void KingdomEngine::weather() {
 }
 
 int politics::war() {
+    cout << "\n======================================" << endl;
+    cout << "         War Mode: Player vs AI       " << endl;
+    cout << "======================================" << endl;
     srand(time(0));
     int posibility = rand() % 50;
     system("cls");
@@ -368,15 +381,15 @@ int politics::war() {
     }
     else if (posibility < 25 && posibility >= 0) {
         cout << "You lost the war!\n";
-        cout << "There will be a large loss in kingdom!\n";
-        money -= 200;
+        cout << "There will be a large loss in kingdom economy\n";
+        money -= 1000;
         people -= 4;
         destroyArmy();
     }
     else if (posibility > 25) {
         cout << "You won the war!\n";
         cout << "There will be a large advantage in everything!\n";
-        money += 200;
+        money += 1000;
         people += 4;
     }
     system("pause");
@@ -385,10 +398,9 @@ int politics::war() {
 
 void politics::politicsDetail() {
     cout << endl << "There are two politicians:\n";
-    cout << "1) Faisal\n";
-    cout << "2) Ehtasham\n";
+    cout << "1) Politician 1\n";
+    cout << "2) Politician 2\n";
 }
-
 void bank::showBankDetails() {
     cout << endl << "In this bank the money is: " << amount;
 }
@@ -490,6 +502,7 @@ void economy::restoreFood()
             else if (i == 2 && j == 15) { ptr[i][j] = 'D'; }
         }
     }
+    system("pause");
 }
 void resourceSystems::resourcesOf1()
 {
@@ -523,6 +536,9 @@ void resourceSystems::resourcesOf2()
 }
 void resourceSystems::displayR1()
 {
+    cout << "\n============================================" << endl;
+    cout << "         Resources of Player        " << endl;
+    cout << "============================================" << endl;
     cout << endl << resource1 << " amount is at kingdom 1 is =" << countOfResource1;
     cout << endl << resource2 << " amount is at kingdom 1 is =" << countOfResource2;
     cout << endl << resource3 << " amount is at kingdom 1 is =" << countOfResource3;
@@ -622,7 +638,7 @@ void politics::trading(politics& p1)
         p1.countOfResource6 -= 5;
     }
 }
-void politics::war(politics& p1)
+void politics::warWithPlayer(politics& p1)
 {
     FullWar();
     cout << "\n its being war:";
